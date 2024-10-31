@@ -1,9 +1,11 @@
 package org.example;
 import exercises.Exercise1;
+import exercises.NegativeIntegerInputException;
 
 public class Main {
 
     public static void main(String[] args) {
+
         Exercise1.divideUserInputs();
     }
 
