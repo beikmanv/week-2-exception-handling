@@ -1,14 +1,18 @@
 package exercises;
 
-public class NegativeIntegerInputException extends Exception {
-    public NegativeIntegerInputException(String s) {
-        super(s);
-               /* if (userInputs[0] < 0 || userInputs[1] < 0){
-                    ArrayList<Integer> negatives = new ArrayList<>();
-                    for (int i = 0; i < userInputs.length; i++){
-                        if (userInputs[i] < 0){
-                            negatives.add(userInputs[i]);
-                        }
-                    }*/
+import java.util.ArrayList;
+
+public class NegativeIntegerInputException extends RuntimeException {
+    public NegativeIntegerInputException(int[] numbers) {
+        super(generateMessage(numbers));
+    }
+    private static String generateMessage(int[] numbers){
+        ArrayList<Integer> negatives = new ArrayList<>();
+        for (int i = 0; i < numbers.length; i++){
+            if (numbers[i] < 0){
+                negatives.add(numbers[i]);
+            }
+        }
+        return "The following negative integer(s) are not allowed in this operation: " + negatives.toString();
     }
 }
